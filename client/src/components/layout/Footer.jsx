@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/aksharjewellers_2013/?hl=en"
+                href="https://www.instagram.com/viditjoshi07"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300"
@@ -35,7 +35,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/918320750853"
+                href="https://wa.me/919586607262"
                 target="_blank"
                 rel="noreferrer"
                 className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300"
@@ -93,7 +93,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-2">
                 <span className="text-gold-500">📞</span>
-                <span>+91 8320750853</span>
+                <span>+91 9586607262</span>
               </li>
               <li className="flex gap-2">
                 <span className="text-gold-500">✉️</span>

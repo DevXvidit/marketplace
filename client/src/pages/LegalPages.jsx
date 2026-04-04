@@ -103,7 +103,7 @@ export function PrivacyPolicyPage() {
       <h2>Contact Us</h2>
       <p>
         If you have questions about this policy, contact us at
-        aksharjewellers98@gmail.com or call +91 8320750853. You may also visit us at
+        aksharjewellers98@gmail.com or call +91 9586607262. You may also visit us at
         Akshar Jewellers, Sardarchowk, Krishnanagar, Ahmedabad 382345.
       </p>
     </LegalShell>
@@ -176,7 +176,7 @@ export function TermsOfServicePage() {
       <h2>Contact Us</h2>
       <p>
         For questions about these Terms, contact us at aksharjewellers98@gmail.com or
-        call +91 8320750853. You may also visit us at Akshar Jewellers, Sardarchowk,
+        call +91 9586607262. You may also visit us at Akshar Jewellers, Sardarchowk,
         Krishnanagar, Ahmedabad 382345.
       </p>
     </LegalShell>

@@ -246,7 +246,7 @@ export default function FaqPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-white/60">
             <span className="font-sans text-[11px] tracking-widest uppercase">Mon to Sat: 10AM to 8PM</span>
             <span className="hidden sm:block w-1 h-1 rounded-full bg-gold-500/40" />
-            <span className="font-sans text-[11px] tracking-widest uppercase">+91 8320750853</span>
+            <span className="font-sans text-[11px] tracking-widest uppercase">+91 9586607262</span>
           </div>
         </motion.div>
       </div>

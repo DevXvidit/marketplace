@@ -457,7 +457,7 @@ function StoreVisitHours() {
             <div className="h-px sm:h-10 sm:w-px w-10 bg-white/10" />
             <div className="text-center sm:text-left">
               <p className="font-sans text-[9px] tracking-[0.3em] uppercase text-white/30 mb-2">Call or WhatsApp</p>
-              <p className="font-display text-lg text-white">+91 8320750853</p>
+              <p className="font-display text-lg text-white">+91 9586607262</p>
             </div>
           </div>
         </motion.div>
