@@ -70,7 +70,7 @@ const forgotPassword = async (req, res) => {
     const user = await User.findOne({ email });
     if (!user) return res.status(404).json({ success: false, message: 'No account found with that email.' });
 
-    const resetCode = Math.floor(100000 + Math.random() * 900000).toString();
+    const resetCode = crypto.randomInt(100000, 1000000).toString();
     const hashedCode = crypto.createHash('sha256').update(resetCode).digest('hex');
 
     user.resetPasswordToken = hashedCode;
