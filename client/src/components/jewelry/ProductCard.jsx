@@ -95,7 +95,9 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
           <button
             onClick={() => dispatch(toggleWishlistRemote(product))}
-            className="flex-shrink-0 p-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+            className="flex-shrink-0 p-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors focus-visible:ring-1 focus:outline-none"
+            aria-label="Toggle wishlist"
+            title="Toggle wishlist"
           >
             <motion.span
               animate={{ scale: isWishlisted ? [1, 1.4, 1] : 1 }}
