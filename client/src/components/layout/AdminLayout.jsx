@@ -85,7 +85,9 @@ export default function AdminLayout() {
           )}
           <button 
             onClick={() => setCollapsed(!collapsed)} 
-            className="w-10 h-10 flex items-center justify-center text-white/40 hover:text-gold-500 transition-all ml-auto hover:bg-white/5 rounded-full"
+            className="w-10 h-10 flex items-center justify-center text-white/40 hover:text-gold-500 transition-all ml-auto hover:bg-white/5 rounded-full focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none"
+            aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+            title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={collapsed ? "M13 5l7 7-7 7" : "M11 19l-7-7 7-7"} />
