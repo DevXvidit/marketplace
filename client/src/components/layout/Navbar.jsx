@@ -84,8 +84,8 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="flex items-center gap-4">
             {/* Search */}
-            <button onClick={() => navigate('/shop')} className="text-white/70 hover:text-gold-500 transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button aria-label="Search collections" onClick={() => navigate('/shop')} className="text-white/70 hover:text-gold-500 transition-colors focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded">
+              <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
@@ -94,8 +94,9 @@ export default function Navbar() {
             {user && (
               <Link
                 to="/wishlist"
-                className="relative text-white/70 hover:text-gold-500 transition-colors group"
+                className="relative text-white/70 hover:text-gold-500 transition-colors group focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded px-1"
                 title="My Wishlist"
+                aria-label={`My Wishlist, ${wishlist.length} items`}
               >
                 <motion.span
                   className="text-xl leading-none block"
@@ -119,8 +120,8 @@ export default function Navbar() {
             {/* User Menu */}
             {user ? (
               <div className="relative">
-                <button onClick={() => setUserMenu(!userMenu)} className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                  <div className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display">
+                <button aria-label="User menu" aria-expanded={userMenu} aria-haspopup="true" onClick={() => setUserMenu(!userMenu)} className="flex items-center gap-2 text-white/70 hover:text-white transition-colors focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-full">
+                  <div aria-hidden="true" className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display rounded-full">
                     {user.name?.[0]?.toUpperCase()}
                   </div>
                 </button>
@@ -169,8 +170,8 @@ export default function Navbar() {
             )}
 
             {/* Mobile Hamburger */}
-            <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-white/70 hover:text-white transition-colors ml-2">
-              <div className="w-5 flex flex-col gap-1.5">
+            <button aria-label="Toggle navigation menu" aria-expanded={menuOpen} aria-controls="mobile-menu" onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-white/70 hover:text-white transition-colors ml-2 focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded p-1">
+              <div aria-hidden="true" className="w-5 flex flex-col gap-1.5">
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
@@ -183,6 +184,7 @@ export default function Navbar() {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
+              id="mobile-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
