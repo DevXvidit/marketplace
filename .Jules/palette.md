@@ -1,0 +1,3 @@
+## 2026-04-18 - Consistent Keyboard Focus Pattern for Interactive Icons
+**Learning:** Icon-only navigation buttons lacked visual feedback during keyboard navigation. This app's styling heavily relies on subtle glow and gold accents. Standard browser outlines contrast too sharply with the dark luxury aesthetic.
+**Action:** Implemented a reusable, theme-consistent focus indicator pattern using Tailwind CSS classes: `focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-sm` (or `rounded-full` for circular elements) specifically for interactive header icons without relying on custom CSS.
