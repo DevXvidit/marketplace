@@ -86,8 +86,8 @@ export default function Navbar() {
             {/* Search */}
             <button
               onClick={() => navigate('/shop')}
-              className="text-white/70 hover:text-gold-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
-              aria-label="Search store"
+              className="text-white/70 hover:text-gold-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded p-1"
+              aria-label="Search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -98,7 +98,7 @@ export default function Navbar() {
             {user && (
               <Link
                 to="/wishlist"
-                className="relative text-white/70 hover:text-gold-500 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
+                className="relative text-white/70 hover:text-gold-500 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded p-1"
                 title="My Wishlist"
                 aria-label="My Wishlist"
               >
@@ -127,11 +127,11 @@ export default function Navbar() {
               <div className="relative">
                 <button
                   onClick={() => setUserMenu(!userMenu)}
-                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-full"
-                  aria-label="Toggle user menu"
+                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
+                  aria-label="User menu"
                   aria-expanded={userMenu}
                 >
-                  <div className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display rounded-full">
+                  <div className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display" aria-hidden="true">
                     {user.name?.[0]?.toUpperCase()}
                   </div>
                 </button>
@@ -182,8 +182,8 @@ export default function Navbar() {
             {/* Mobile Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="lg:hidden text-white/70 hover:text-white transition-colors ml-2 p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
-              aria-label="Toggle navigation menu"
+              className="lg:hidden text-white/70 hover:text-white transition-colors ml-2 p-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
+              aria-label="Toggle menu"
               aria-expanded={menuOpen}
             >
               <div className="w-5 flex flex-col gap-1.5" aria-hidden="true">
