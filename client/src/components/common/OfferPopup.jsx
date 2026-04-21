@@ -97,6 +97,7 @@ export default function OfferPopup() {
 
             {/* Close Button */}
             <button
+              aria-label="Close offer popup"
               onClick={handleClose}
               className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-black/40 border border-white/10 text-white/50 hover:text-white hover:border-gold-500/50 hover:bg-gold-500/10 rounded-full transition-all z-50 hover:scale-110 active:scale-95 cursor-pointer"
             >
