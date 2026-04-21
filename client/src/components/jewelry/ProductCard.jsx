@@ -95,12 +95,14 @@ export default function ProductCard({ product, index = 0 }) {
           </div>
           <button
             onClick={() => dispatch(toggleWishlistRemote(product))}
-            className="flex-shrink-0 p-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+            className="flex-shrink-0 p-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+            aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
           >
             <motion.span
               animate={{ scale: isWishlisted ? [1, 1.4, 1] : 1 }}
               transition={{ duration: 0.3 }}
               className={`text-lg leading-none ${isWishlisted ? 'text-red-500' : 'text-white/20 hover:text-red-400'}`}
+              aria-hidden="true"
             >
               {isWishlisted ? '♥' : '♡'}
             </motion.span>
