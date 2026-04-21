@@ -284,9 +284,10 @@ export default function ProductPage() {
               </a>
               <button
                 onClick={() => { dispatch(toggleWishlistRemote(product)); toast.success(isWishlisted ? 'Removed from wishlist' : 'Added to wishlist'); }}
-                className={`border px-5 py-3 transition-all duration-300 text-lg ${isWishlisted ? 'border-red-500 text-red-400 bg-red-500/10' : 'border-luxury-border text-luxury-muted hover:border-red-500 hover:text-red-400'}`}
+                className={`border px-5 py-3 transition-all duration-300 text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 ${isWishlisted ? 'border-red-500 text-red-400 bg-red-500/10' : 'border-luxury-border text-luxury-muted hover:border-red-500 hover:text-red-400'}`}
+                aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
               >
-                {isWishlisted ? '♥' : '♡'}
+                <span aria-hidden="true">{isWishlisted ? '♥' : '♡'}</span>
               </button>
             </div>
 

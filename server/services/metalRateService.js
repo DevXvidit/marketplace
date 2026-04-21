@@ -40,7 +40,6 @@ const fetchFromMetalsDev = async () => {
       source: 'metals.dev'
     };
   } catch (err) {
-    // console.log('metals.dev failed, trying alternative...', err.message);
     return null;
   }
 };
@@ -73,7 +72,6 @@ const fetchFromGoldAPI = async () => {
     };
   } catch (err) {
     const status = err.response?.status;
-    // console.log('GoldAPI failed, trying alternative...', status ? `${status}` : err.message);
     return null;
   }
 };
@@ -112,7 +110,6 @@ const fetchFromMetalpriceAPI = async () => {
     };
   } catch (err) {
     const status = err.response?.status;
-    // console.log('metalpriceapi failed, trying alternative...', status ? `${status}` : err.message);
     return null;
   }
 };
@@ -155,7 +152,6 @@ const fetchFromMetalsLive = async () => {
       source: 'metals.live'
     };
   } catch (err) {
-    // console.log('metals.live failed:', err.message);
     return null;
   }
 };
@@ -196,7 +192,6 @@ const fetchAndSaveRates = async () => {
     if (!rates) rates = await fetchFromGoldAPI();
     
     if (!rates) {
-      // console.log('All APIs failed, using fallback rates');
       rates = { ...FALLBACK_RATES, source: 'fallback' };
     }
 
