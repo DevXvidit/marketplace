@@ -84,8 +84,12 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="flex items-center gap-4">
             {/* Search */}
-            <button onClick={() => navigate('/shop')} className="text-white/70 hover:text-gold-500 transition-colors">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button
+              onClick={() => navigate('/shop')}
+              className="text-white/70 hover:text-gold-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
+              aria-label="Search store"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
@@ -94,13 +98,15 @@ export default function Navbar() {
             {user && (
               <Link
                 to="/wishlist"
-                className="relative text-white/70 hover:text-gold-500 transition-colors group"
+                className="relative text-white/70 hover:text-gold-500 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
                 title="My Wishlist"
+                aria-label="My Wishlist"
               >
                 <motion.span
                   className="text-xl leading-none block"
                   whileHover={{ scale: 1.15 }}
                   whileTap={{ scale: 0.9 }}
+                  aria-hidden="true"
                 >
                   {wishlist.length > 0 ? '♥' : '♡'}
                 </motion.span>
@@ -119,8 +125,13 @@ export default function Navbar() {
             {/* User Menu */}
             {user ? (
               <div className="relative">
-                <button onClick={() => setUserMenu(!userMenu)} className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                  <div className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display">
+                <button
+                  onClick={() => setUserMenu(!userMenu)}
+                  className="flex items-center gap-2 text-white/70 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-full"
+                  aria-label="Toggle user menu"
+                  aria-expanded={userMenu}
+                >
+                  <div className="w-7 h-7 border border-gold-500 flex items-center justify-center text-gold-500 text-xs font-display rounded-full">
                     {user.name?.[0]?.toUpperCase()}
                   </div>
                 </button>
@@ -169,8 +180,13 @@ export default function Navbar() {
             )}
 
             {/* Mobile Hamburger */}
-            <button onClick={() => setMenuOpen(!menuOpen)} className="lg:hidden text-white/70 hover:text-white transition-colors ml-2">
-              <div className="w-5 flex flex-col gap-1.5">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="lg:hidden text-white/70 hover:text-white transition-colors ml-2 p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded-sm"
+              aria-label="Toggle navigation menu"
+              aria-expanded={menuOpen}
+            >
+              <div className="w-5 flex flex-col gap-1.5" aria-hidden="true">
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
                 <span className={`h-px bg-current transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
