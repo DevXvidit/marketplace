@@ -39,9 +39,15 @@ const ensureCategories = async () => {
     { name: 'Bridal Sets', slug: 'bridal-sets', icon: 'bridal', description: 'Complete bridal jewelry sets', sortOrder: 6 },
   ];
 
-  for (const c of list) {
-    await Category.findOneAndUpdate({ slug: c.slug }, c, { upsert: true, new: true });
-  }
+  const operations = list.map(c => ({
+    updateOne: {
+      filter: { slug: c.slug },
+      update: { $set: c },
+      upsert: true
+    }
+  }));
+  await Category.bulkWrite(operations);
+
   console.log('Categories ensured');
 };
 
