@@ -187,7 +187,9 @@ export default function ForgotPasswordPage() {
                       <button
                         type="button"
                         onClick={() => setShowPw(!showPw)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-sm"
+                        aria-label={showPw ? "Hide password" : "Show password"}
+                        title={showPw ? "Hide password" : "Show password"}
                       >
                         {showPw ? '🙈' : '👁️'}
                       </button>
