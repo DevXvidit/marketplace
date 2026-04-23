@@ -26,9 +26,10 @@ export default function Footer() {
                 href="https://www.instagram.com/viditjoshi07"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300"
+                aria-label="Instagram"
+                className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-sm"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
                   <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
                   <circle cx="12" cy="12" r="4.2" />
                   <circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none" />
@@ -38,9 +39,10 @@ export default function Footer() {
                 href="https://wa.me/919586607262"
                 target="_blank"
                 rel="noreferrer"
-                className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300"
+                aria-label="WhatsApp"
+                className="w-8 h-8 border border-luxury-border flex items-center justify-center text-luxury-muted hover:border-gold-500 hover:text-gold-500 transition-all duration-300 focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-sm"
               >
-                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
                   <path d="M12 3.5a8.5 8.5 0 0 0-7.35 12.8L3.5 21l4.9-1.3A8.5 8.5 0 1 0 12 3.5Z" />
                   <path d="M9.2 8.8c.3-.5.6-.5.9-.5h.7c.2 0 .5 0 .7.5.2.5.7 1.7.8 1.9.1.2.1.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.4 1.2 2.5 1.6 2.9 1.8.4.2.6.1.8-.1.2-.2.9-1 .1-1.8" />
                 </svg>
