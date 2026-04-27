@@ -1,3 +1,7 @@
 ## 2024-05-18 - Missing ARIA Labels on Icon Buttons
 **Learning:** Across the frontend codebase, many icon-only buttons (e.g., Wishlist toggles in product cards, Search/User/Hamburger buttons in the Navbar) were missing `aria-label`s and focus indicators for keyboard navigation, impairing accessibility.
 **Action:** Always verify that icon-only buttons include `aria-label`s (and occasionally `title` for tooltip fallback). Ensure `focus-visible:ring-1 focus:outline-none` or equivalent styles are consistently applied for keyboard visibility without mouse disruption. A reusable `IconButton` component should be considered for future feature additions to standardise this behavior.
+
+## 2024-06-18 - Carousel Indicators Missing Accessibility Properties
+**Learning:** Carousel indicators in the hero section are often implemented as empty `button` elements using styling alone (e.g., width changes) to show active states. This pattern creates a completely silent experience for screen reader users and an invisible focused state for keyboard users, since the dark theme obscures default browser outlines.
+**Action:** Always apply `role="tablist"` to the indicator container, and `role="tab"`, `aria-selected`, and clear `aria-label`s to the individual slide buttons. Crucially, in dark themes, ensure custom focus rings explicitly override the dark background using `focus-visible:ring-2 focus-visible:ring-offset-2` to guarantee visible keyboard navigation.

@@ -163,12 +163,19 @@ function HeroSection() {
           />
           
           {/* Slide Indicator Dot Bar */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+          <div
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-30"
+            role="tablist"
+            aria-label="Hero carousel slides"
+          >
             {HERO_IMAGES.map((_, i) => (
               <button 
                 key={i} 
+                role="tab"
+                aria-selected={i === currentImg}
+                aria-label={`Go to slide ${i + 1}`}
                 onClick={() => setCurrentImg(i)}
-                className={`h-1.5 rounded-full transition-all duration-500 ${i === currentImg ? 'w-8 bg-gold-500' : 'w-2 bg-white/20 hover:bg-white/40'}`}
+                className={`h-1.5 rounded-full transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] ${i === currentImg ? 'w-8 bg-gold-500' : 'w-2 bg-white/20 hover:bg-white/40'}`}
               />
             ))}
           </div>
