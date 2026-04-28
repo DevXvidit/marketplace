@@ -108,8 +108,9 @@ export default function LoginPage() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div className="group">
-              <label className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">Email Address</label>
+              <label htmlFor="login-email" className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">Email Address</label>
               <input
+                id="login-email"
                 type="email"
                 value={form.email}
                 onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
@@ -121,9 +122,10 @@ export default function LoginPage() {
 
             {/* Password */}
             <div>
-              <label className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">Password</label>
+              <label htmlFor="login-password" className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">Password</label>
               <div className="relative">
                 <input
+                  id="login-password"
                   type={showPw ? 'text' : 'password'}
                   value={form.password}
                   onChange={e => setForm(f => ({ ...f, password: e.target.value }))}
@@ -132,6 +134,7 @@ export default function LoginPage() {
                   className="input-luxury w-full pr-10"
                 />
                 <button type="button" onClick={() => setShowPw(!showPw)}
+                  aria-label={showPw ? "Hide password" : "Show password"}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 transition-colors">
                   {showPw ? '🙈' : '👁️'}
                 </button>
