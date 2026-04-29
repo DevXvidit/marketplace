@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 export function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '', phone: '' });
+  const [showPw, setShowPw] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, user } = useSelector(s => s.auth);
@@ -61,8 +62,35 @@ export function RegisterPage() {
           ].map(([key, label, type, placeholder]) => (
             <div key={key}>
               <label className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">{label}</label>
-              <input type={type} value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                placeholder={placeholder} required={key !== 'phone'} className="input-luxury w-full" />
+              {key === 'password' ? (
+                <div className="relative">
+                  <input
+                    type={showPw ? 'text' : 'password'}
+                    value={form[key]}
+                    onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                    placeholder={placeholder}
+                    required
+                    className="input-luxury w-full pr-10"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPw(!showPw)}
+                    aria-label={showPw ? "Hide password" : "Show password"}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 rounded"
+                  >
+                    {showPw ? '🙈' : '👁️'}
+                  </button>
+                </div>
+              ) : (
+                <input
+                  type={type}
+                  value={form[key]}
+                  onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                  placeholder={placeholder}
+                  required={key !== 'phone'}
+                  className="input-luxury w-full"
+                />
+              )}
               {key === 'password' && (
                 <div className="mt-3 grid grid-cols-2 gap-y-1.5 gap-x-2">
                   {[
