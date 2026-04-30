@@ -7,8 +7,16 @@ import { registerUser, clearError } from '../store/authSlice';
 import { fetchWishlist } from '../store/cartSlice';
 import toast from 'react-hot-toast';
 
+const REGISTER_FIELDS = [
+  { key: 'name', label: 'Full Name', type: 'text', placeholder: 'Your full name', required: true },
+  { key: 'email', label: 'Email Address', type: 'email', placeholder: 'your@email.com', required: true },
+  { key: 'phone', label: 'Phone Number', type: 'tel', placeholder: '+91 XXXXX XXXXX', required: false },
+  { key: 'password', label: 'Password', type: 'password', placeholder: '••••••••', required: true },
+];
+
 export function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '', phone: '' });
+  const [showPw, setShowPw] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, user } = useSelector(s => s.auth);
@@ -53,16 +61,31 @@ export function RegisterPage() {
           <p className="font-sans text-xs text-luxury-muted mt-1">Join the Akshar family</p>
         </div>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {[
-            ['name', 'Full Name', 'text', 'Your full name'],
-            ['email', 'Email Address', 'email', 'your@email.com'],
-            ['phone', 'Phone Number', 'tel', '+91 XXXXX XXXXX'],
-            ['password', 'Password', 'password', '••••••••'],
-          ].map(([key, label, type, placeholder]) => (
+          {REGISTER_FIELDS.map(({ key, label, type, placeholder, required }) => (
             <div key={key}>
-              <label className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">{label}</label>
-              <input type={type} value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                placeholder={placeholder} required={key !== 'phone'} className="input-luxury w-full" />
+              <label htmlFor={`register-${key}`} className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">{label}</label>
+              <div className="relative">
+                <input
+                  id={`register-${key}`}
+                  type={key === 'password' && showPw ? 'text' : type}
+                  value={form[key]}
+                  onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                  placeholder={placeholder}
+                  required={required}
+                  className={`input-luxury w-full ${key === 'password' ? 'pr-10' : ''}`}
+                />
+                {key === 'password' && (
+                  <button
+                    type="button"
+                    onClick={() => setShowPw(!showPw)}
+                    aria-label={showPw ? 'Hide password' : 'Show password'}
+                    title={showPw ? 'Hide password' : 'Show password'}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 transition-colors focus-visible:ring-1 focus-visible:ring-gold-500 focus:outline-none rounded-sm"
+                  >
+                    {showPw ? '🙈' : '👁️'}
+                  </button>
+                )}
+              </div>
               {key === 'password' && (
                 <div className="mt-3 grid grid-cols-2 gap-y-1.5 gap-x-2">
                   {[
