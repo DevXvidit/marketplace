@@ -9,6 +9,7 @@ import toast from 'react-hot-toast';
 
 export function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '', phone: '' });
+  const [showPw, setShowPw] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, user } = useSelector(s => s.auth);
@@ -60,9 +61,29 @@ export function RegisterPage() {
             ['password', 'Password', 'password', '••••••••'],
           ].map(([key, label, type, placeholder]) => (
             <div key={key}>
-              <label className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">{label}</label>
-              <input type={type} value={form[key]} onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
-                placeholder={placeholder} required={key !== 'phone'} className="input-luxury w-full" />
+              <label htmlFor={`register-${key}`} className="font-sans text-[10px] tracking-widest uppercase text-luxury-muted block mb-2">{label}</label>
+              <div className="relative">
+                <input
+                  id={`register-${key}`}
+                  type={key === 'password' && showPw ? 'text' : type}
+                  value={form[key]}
+                  onChange={e => setForm(f => ({ ...f, [key]: e.target.value }))}
+                  placeholder={placeholder}
+                  required={key !== 'phone'}
+                  className={`input-luxury w-full ${key === 'password' ? 'pr-10' : ''}`}
+                />
+                {key === 'password' && (
+                  <button
+                    type="button"
+                    onClick={() => setShowPw(!showPw)}
+                    aria-label={showPw ? 'Hide password' : 'Show password'}
+                    title={showPw ? 'Hide password' : 'Show password'}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-gold-500 rounded-sm"
+                  >
+                    {showPw ? '🙈' : '👁️'}
+                  </button>
+                )}
+              </div>
               {key === 'password' && (
                 <div className="mt-3 grid grid-cols-2 gap-y-1.5 gap-x-2">
                   {[
@@ -104,6 +125,7 @@ export function ProfilePage() {
   const { user } = useSelector(s => s.auth);
   const [passForm, setPassForm] = useState({ currentPassword: '', newPassword: '', confirmPassword: '' });
   const [changing, setChanging] = useState(false);
+  const [showPwProfile, setShowPwProfile] = useState(false);
 
   const handlePassChange = async (e) => {
     e.preventDefault();
@@ -168,10 +190,21 @@ export function ProfilePage() {
                   ['confirmPassword', 'Confirm Security Key', 'Confirm Password']
                 ].map(([key, label, placeholder]) => (
                   <div key={key}>
-                    <label className="font-sans text-[9px] tracking-[0.3em] uppercase text-luxury-muted block mb-3">{label}</label>
-                    <input type="password" required value={passForm[key]}
-                      onChange={e => setPassForm(f => ({ ...f, [key]: e.target.value }))}
-                      className="input-luxury w-full bg-white/[0.02] border-white/10" placeholder={placeholder} />
+                    <label htmlFor={`profile-${key}`} className="font-sans text-[9px] tracking-[0.3em] uppercase text-luxury-muted block mb-3">{label}</label>
+                    <div className="relative">
+                      <input id={`profile-${key}`} type={showPwProfile ? 'text' : 'password'} required value={passForm[key]}
+                        onChange={e => setPassForm(f => ({ ...f, [key]: e.target.value }))}
+                        className="input-luxury w-full bg-white/[0.02] border-white/10 pr-10" placeholder={placeholder} />
+                      <button
+                        type="button"
+                        onClick={() => setShowPwProfile(!showPwProfile)}
+                        aria-label={showPwProfile ? 'Hide passwords' : 'Show passwords'}
+                        title={showPwProfile ? 'Hide passwords' : 'Show passwords'}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-luxury-muted hover:text-gold-400 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-gold-500 rounded-sm"
+                      >
+                        {showPwProfile ? '🙈' : '👁️'}
+                      </button>
+                    </div>
                   </div>
                 ))}
                 <button type="submit" disabled={changing} className="btn-gold w-full h-14 tracking-[0.3em] text-[10px] mt-4">
