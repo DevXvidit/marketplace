@@ -1,3 +1,3 @@
-## 2024-05-18 - Missing ARIA Labels on Icon Buttons
-**Learning:** Across the frontend codebase, many icon-only buttons (e.g., Wishlist toggles in product cards, Search/User/Hamburger buttons in the Navbar) were missing `aria-label`s and focus indicators for keyboard navigation, impairing accessibility.
-**Action:** Always verify that icon-only buttons include `aria-label`s (and occasionally `title` for tooltip fallback). Ensure `focus-visible:ring-1 focus:outline-none` or equivalent styles are consistently applied for keyboard visibility without mouse disruption. A reusable `IconButton` component should be considered for future feature additions to standardise this behavior.
+## 2024-05-07 - [Added Accessible Password Toggles]
+**Learning:** Adding accessible 'Show Password' toggles with dynamic `aria-label`, `title`, and `focus-visible` styles reduces user frustration, especially when forms like RegisterPage enforce strict password complexity rules. Consistent keyboard accessibility across all such toggles is critical for an inclusive experience.
+**Action:** Always include a show password toggle on complex password fields, ensuring they are keyboard-navigable with clear ARIA labels and visible focus rings.
