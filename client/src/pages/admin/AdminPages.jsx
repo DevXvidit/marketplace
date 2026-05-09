@@ -98,7 +98,7 @@ export function AdminCategories() {
                         <p className="font-sans text-[8px] text-white/10 uppercase tracking-[0.2em] mt-1">{cat.slug}</p>
                       </div>
                     </div>
-                    <button onClick={() => handleDelete(cat._id)} className="w-8 h-8 flex items-center justify-center text-white/10 hover:text-red-500 hover:bg-red-900/10 transition-all rounded-sm opacity-0 group-hover:opacity-100">×</button>
+                    <button onClick={() => handleDelete(cat._id)} className="w-8 h-8 flex items-center justify-center text-white/10 hover:text-red-500 hover:bg-red-900/10 transition-all rounded-sm opacity-0 group-hover:opacity-100" aria-label="Delete category">×</button>
                   </motion.div>
                 ))}
               </AnimatePresence>
