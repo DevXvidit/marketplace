@@ -94,7 +94,6 @@ export default function ProductCard({ product, index = 0 }) {
             </Link>
           </div>
           <button
-            aria-label="Toggle wishlist"
             onClick={() => dispatch(toggleWishlistRemote(product))}
             className="flex-shrink-0 p-1 rounded-full bg-white/5 hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
             aria-label={isWishlisted ? "Remove from wishlist" : "Add to wishlist"}
