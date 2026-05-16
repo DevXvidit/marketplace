@@ -332,10 +332,10 @@ export default function AdminOffers() {
                       </div>
 
                       <div className="flex gap-2">
-                        <button onClick={() => handleEdit(offer)} className="w-10 h-10 flex items-center justify-center border border-white/5 text-white/20 hover:text-blue-500 hover:border-blue-900/40 hover:bg-blue-900/10 transition-all flex-shrink-0 rounded-sm" title="Edit Campaign">
+                        <button aria-label="Edit Campaign" onClick={() => handleEdit(offer)} className="w-10 h-10 flex items-center justify-center border border-white/5 text-white/20 hover:text-blue-500 hover:border-blue-900/40 hover:bg-blue-900/10 transition-all flex-shrink-0 rounded-sm" title="Edit Campaign">
                           <span className="text-sm">✎</span>
                         </button>
-                        <button onClick={() => handleDelete(offer._id)} className="w-10 h-10 flex items-center justify-center border border-white/5 text-white/20 hover:text-red-500 hover:border-red-900/40 hover:bg-red-900/10 transition-all flex-shrink-0 rounded-sm" title="Terminate Campaign">
+                        <button aria-label="Terminate Campaign" onClick={() => handleDelete(offer._id)} className="w-10 h-10 flex items-center justify-center border border-white/5 text-white/20 hover:text-red-500 hover:border-red-900/40 hover:bg-red-900/10 transition-all flex-shrink-0 rounded-sm" title="Terminate Campaign">
                           <span className="text-xl">×</span>
                         </button>
                       </div>

@@ -255,6 +255,7 @@ export default function AdminProducts() {
                                         Edit
                                       </Link>
                                       <button
+                                        aria-label="Delete Product"
                                         onClick={() => handleDelete(p._id)}
                                         disabled={deleting === p._id}
                                         className="h-8 w-8 flex items-center justify-center text-white/10 hover:text-red-500 hover:bg-red-900/10 transition-all rounded-sm"
